@@ -1,5 +1,6 @@
 class Sensor {
-    constructor() {
+    constructor(name) {
+        this.name = name;
         this.powerStatus = 'off';
         this.status;
         this.reportingInterval = 10000;
@@ -19,9 +20,7 @@ class Sensor {
         }
     }
     advanceTimersByTime(waitingTime) {
-        this.status = 'sensingDistance';
-        setTimeout('', waitingTime);
-        this.status = 'sensingDistance';
+        setTimeout(() => {this.status = 'sensingDistance'}, waitingTime);
     }
 }
 
@@ -31,3 +30,7 @@ module.exports = {
     Sensor,
     IotServer,
 };
+
+// const sensor = new Sensor('id1');
+// sensor.turn('on');
+// sensor.advanceTimersByTime(sensor.reportingInterval);
